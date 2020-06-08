@@ -37,6 +37,16 @@ public class StreamTest {
 		
 		System.out.println(pessoas2);
 		
+		//filtrar, ordenar, limitar
+		List<Pessoa> pessoas3 = pessoas.stream()
+				.filter(p -> p.getIdade() < 25)
+				.sorted(Comparator.comparing(Pessoa::getNome))
+				.limit(3)
+				.skip(1)
+				.collect(Collectors.toList());
+		
+		System.out.println("com skip = " + pessoas3);
+		
 		//contar
 		System.out.println(pessoas.stream()
 				.filter(p -> p.getIdade() < 25)
